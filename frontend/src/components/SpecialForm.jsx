@@ -8,6 +8,11 @@ const SpecialForm = ({ close, data, type }) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
+    if (name === "") {
+      alert("all fields are required");
+      return -1;
+    }
+
     if (type === "new") {
       await addSpecial({ name });
     } else {
@@ -15,11 +20,6 @@ const SpecialForm = ({ close, data, type }) => {
     }
     close();
   };
-
-  useEffect(() => {
-    console.log(type);
-    console.log(data);
-  }, []);
 
   return (
     <div>
